@@ -75,7 +75,7 @@ class RestaurantTest {
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-    //>>>>>>>>>>>>>>>>>>>>>>>>>>>MENU<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    //>>>>>>>>>>>>>>>>>>>>>>>>>>>Cost Of Order<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     @Test
     public void cost_of_order_after_selecting_the_items_from_the_menu() {
         restaurant.addToMenu("Sweet corn soup",119);
@@ -90,7 +90,7 @@ class RestaurantTest {
 
         int totalCost = restaurant.getOrderCost(selectedItems);
 
-        assertTrue(totalCost > -1);
+        assertEquals(388,totalCost);
     }
 
     @Test
@@ -103,9 +103,9 @@ class RestaurantTest {
 
         int totalCost = restaurant.getOrderCost(selectedItems);
 
-        assertTrue(totalCost > -1);
+        assertEquals(0,totalCost);
     }
 
 
-    //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    //<<<<<<<<<<<<<<<<<<<<<<<Cost Of Order>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }

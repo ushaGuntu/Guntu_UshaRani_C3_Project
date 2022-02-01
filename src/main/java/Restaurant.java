@@ -28,7 +28,13 @@ public class Restaurant {
     }
 
     public int getOrderCost(List<Item> selectedItems) {
-        return -1;
+        int costOfTotalOrder = 0;
+        for (Item selectedItem: selectedItems) {
+            String priceOfITem = selectedItem.toString().split(":")[1];
+            String price = priceOfITem.split("\n")[0];
+            costOfTotalOrder += Integer.valueOf(price);
+        }
+        return costOfTotalOrder;
     }
 
     public LocalTime getCurrentTime(){ return  LocalTime.now(); }
