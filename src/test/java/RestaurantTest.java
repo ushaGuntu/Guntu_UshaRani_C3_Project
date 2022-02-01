@@ -3,6 +3,8 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -71,5 +73,39 @@ class RestaurantTest {
         assertThrows(itemNotFoundException.class,
                 ()->restaurant.removeFromMenu("French fries"));
     }
+    //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    //>>>>>>>>>>>>>>>>>>>>>>>>>>>MENU<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    @Test
+    public void cost_of_order_after_selecting_the_items_from_the_menu() {
+        restaurant.addToMenu("Sweet corn soup",119);
+        restaurant.addToMenu("Vegetable lasagne",269);
+        restaurant.addToMenu("Sizzling brownie",319);
+
+        List<Item> selectedItems = new ArrayList<Item>();
+        Item item1 = new Item("Sweet corn soup",119);
+        Item item2 = new Item("Vegetable lasagne", 269);
+        selectedItems.add(item1);
+        selectedItems.add(item2);
+
+        int totalCost = restaurant.getOrderCost(selectedItems);
+
+        assertTrue(totalCost > -1);
+    }
+
+    @Test
+    public  void cost_of_order_should_be_0_when_no_items_are_selected() {
+        restaurant.addToMenu("Sweet corn soup",119);
+        restaurant.addToMenu("Vegetable lasagne",269);
+        restaurant.addToMenu("Sizzling brownie",319);
+
+        List<Item> selectedItems = new ArrayList<Item>();
+
+        int totalCost = restaurant.getOrderCost(selectedItems);
+
+        assertTrue(totalCost > -1);
+    }
+
+
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }

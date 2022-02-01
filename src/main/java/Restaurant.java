@@ -1,3 +1,4 @@
+
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -24,6 +25,10 @@ public class Restaurant {
             return false;
         }
         //DELETE ABOVE STATEMENT AND WRITE CODE HERE
+    }
+
+    public int getOrderCost(List<Item> selectedItems) {
+        return -1;
     }
 
     public LocalTime getCurrentTime(){ return  LocalTime.now(); }
